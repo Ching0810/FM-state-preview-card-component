@@ -6,67 +6,95 @@ $White: hsl(0, 0%, 100%);
 $mainParagraphWhite: hsla(0, 0%, 100%, 0.75);
 $statHeadingsWhite: hsla(0, 0%, 100%, 0.6);
 $borderRadius: 10px;
+$small-screen: 375px;
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: 15px;
+  font-family: 'Lexend Deca', sans-serif;
 }
 
-body {
-  font-family: 'Lexend Deca', sans-serif;
-  font-family: 'Outfit', sans-serif;
-  font-size: 15px;
-  color: $White;
-  background-color: $darkBlue;
+.container {
+  width: 100vw;
   min-height: 100vh;
+  background: $darkBlue;
+  color: $White;
   display: flex;
   align-items: center;
   justify-content: center;
+  .card {
+    width: 70vw;
+    background: $desaturatedBlue;
+    border-radius: 7px;
+    display: flex;
+    .text {
+      width: 50%;
+      padding: 4rem;
+      h1 {
+        font-size: 2rem;
+        span {
+          font-size: 2rem;
+          color: $violet;
+        }
+      }
+      p {
+        color: $mainParagraphWhite;
+        margin: 1.5rem 0 3rem 0;
+      }
+      .state {
+        display: flex;
+        justify-content: space-between;
+        font-family: 'Outfit', sans-serif;
+        .nums {
+          h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+          }
+          p {
+            text-transform: uppercase;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            margin: 0.5rem 0;
+          }
+        }
+      }
+    }
+    .img {
+      border-radius: 0 7px 7px 0;
+      width: 50%;
+      background: linear-gradient(
+        0deg,
+        hsl(277, 64%, 61%, 0.5) 0%,
+        hsl(277, 64%, 61%, 0.5) 100%,
+      )
+      ,url(./images/image-header-desktop.jpg)
+      center no-repeat;
+      background-size: cover;
+    }
+  }
+}
+
+@media screen and (max-width:375px) {
   .container {
-    margin: 1rem;
-    width: 360px;
-    background-color: $desaturatedBlue;
     .card {
-      width: 100%;
-      border-radius: $borderRadius;
-      display: flex;
-      flex-direction: column;
+      flex-direction: column-reverse;
+      justify-content: center;
+      width: 90vw;
+      height: 90vh;
       .img {
         width: 100%;
-        height: 260px;
-        border-top-left-radius: $borderRadius;
-        border-top-right-radius: $borderRadius;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-        background: linear-gradient(
-          0deg,
-          hsl(277, 64%, 61%, 0.5) 0%,
-          hsl(277, 64%, 61%, 0.5) 100%,
-        ),
-        url(./images/image-header-mobile.jpg)
-        center no-repeat;
-        background-size: cover;
+        height: 30%;
+        border-radius: 7px 7px 0 0;
       }
       .text {
+        width: auto;
+        height: 70%;
         text-align: center;
-        padding: 2rem 2.5rem;
-        h1 {
-          margin-bottom: 1rem;
-          span {
-            color: $violet;
-          }
-        }
-        p {
-          color: $mainParagraphWhite;
-          line-height: 1.5rem;
-          padding-bottom: 2.5rem;
-        }
-        .nums {
-          p {
-            padding: 0.2rem 0 1.5rem 0;
-            text-transform: uppercase;
-          }
+        padding: 1.5rem;
+        .state {
+          flex-direction: column;
         }
       }
     }
